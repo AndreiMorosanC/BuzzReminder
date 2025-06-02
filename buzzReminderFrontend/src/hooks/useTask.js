@@ -9,6 +9,7 @@ const useTasks = () => {
       const res = await fetch(BASE_URL, {
         method: "GET",
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
@@ -31,7 +32,9 @@ const useTasks = () => {
         },
         body: JSON.stringify(task),
       });
-
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || "No se pudo crear la tarea");
+      return data;
       if (!res.ok) throw new Error("No se pudo crear la tarea");
       return await res.json();
     } catch (err) {
@@ -40,7 +43,42 @@ const useTasks = () => {
     }
   };
 
-  return { getTasks, createTask };
+  const deleteTask = async (id) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!res.ok) throw new Error("can't delete the task");
+      return true;
+    } catch (err) {
+      console.error("❌ Error al eliminar tarea:", err.message);
+      return false;
+    }
+  };
+
+  const editTask = async (id, updatedTask) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(updatedTask),
+      });
+
+      if (!res.ok) throw new Error("No se pudo actualizar la tarea");
+      return await res.json();
+    } catch (err) {
+      console.error("❌ Error al editar tarea:", err.message);
+      return null;
+    }
+  };
+
+  return { getTasks, createTask, deleteTask, editTask };
 };
 
 export default useTasks;

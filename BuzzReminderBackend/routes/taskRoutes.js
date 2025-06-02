@@ -1,6 +1,5 @@
 import express from "express";
-import verifyFirebaseToken from '../middlewares/verifyFirebaseToken.js';
-
+import verifyFirebaseToken from "../middlewares/verifyFirebaseToken.js";
 import {
   createTask,
   getTasks,
@@ -11,13 +10,8 @@ import {
 const router = express.Router();
 
 router.post("/", verifyFirebaseToken, createTask);
-
-router.get('/', verifyFirebaseToken, getTasks);
-
-router.get("/", verifyFirebaseToken, (req, res) => {
-  res.json({ message: "Tareas protegidas", user: req.user });
-});
-
+router.get("/", verifyFirebaseToken, getTasks);
+router.put("/:id",verifyFirebaseToken, updateTask)
 router.delete("/:id", verifyFirebaseToken, deleteTask);
 
 export default router;

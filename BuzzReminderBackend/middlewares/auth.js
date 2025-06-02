@@ -1,4 +1,4 @@
-const admin = require("../firebase/admin");
+import admin from "../firebase/admin.js"
 
 const verifyToken = async (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -20,4 +20,4 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-module.exports = verifyToken;
+export default verifyToken;
