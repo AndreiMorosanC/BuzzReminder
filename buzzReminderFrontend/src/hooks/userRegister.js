@@ -6,9 +6,12 @@ export function userRegister() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [name, setName] = useState("");
+
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+  const handleNameChange = (e) => setName(e.target.value);
 
   const register = async () => {
     try {
@@ -29,8 +32,10 @@ export function userRegister() {
   return {
     email,
     password,
+    name,
     handleEmailChange,
     handlePasswordChange,
+    handleNameChange,
     register,
     error,
   };
