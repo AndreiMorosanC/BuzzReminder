@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Login from "../LoginMain/Login";
 import Calendar from "../../Components/CalendarMain/Calendar";
-
+import Menu from "../../Components/MenuMain/Menu";
 
 const Home = ()=>{
 
 
 
     return(
-        <div>
-           
+        <div className="flex flex-row ">
+            <Menu/>
             <Calendar/>
 
         </div>

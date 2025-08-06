@@ -17,7 +17,7 @@ app.use(
 );
 app.use(express.json());
 
-// ✅ Aquí es el único lugar donde conectas con MongoDB
+
 mongoose
   .connect(
     "mongodb+srv://andreimorosan39:JwL5EMJYlYQRfElb@cluster0.jtwyx7f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"

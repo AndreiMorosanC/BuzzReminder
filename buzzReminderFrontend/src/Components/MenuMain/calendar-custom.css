@@ -1,0 +1,45 @@
+/* Quitar bordes y ajustar estilo base */
+.react-calendar {
+  border: none;
+  background-color: transparent;
+}
+
+/* Encabezado del mes y botones */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.react-calendar__navigation button {
+  color: white;
+  font-weight: bold;
+  background: none;
+}
+
+/* Días */
+.react-calendar__month-view__days__day {
+  color: white;
+  position: relative;
+}
+
+/* Puntos debajo de cada día */
+.react-calendar__month-view__days__day::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* Día seleccionado */
+.react-calendar__tile--active {
+  background: #ffeb3b !important;
+  color: black !important;
+  border-radius: 50%;
+}

@@ -35,4 +35,4 @@ router.post("/", verifyToken, async (req, res) => {
   }
 });
 
-
+export default router;

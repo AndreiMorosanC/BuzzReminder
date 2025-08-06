@@ -12,7 +12,7 @@ const calendar = ()=>{
 
 
   return(
-    <div>
+    <div className="w-[50%]">
       <CalendarController/>
 
     </div>
