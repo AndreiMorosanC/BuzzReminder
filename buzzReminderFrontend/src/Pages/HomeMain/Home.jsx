@@ -9,7 +9,7 @@ const Home = ()=>{
 
     return(
         <div className="flex flex-row ">
-            <Menu/>
+            <Menu />
             <Calendar/>
 
         </div>

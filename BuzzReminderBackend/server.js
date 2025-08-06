@@ -20,7 +20,7 @@ app.use(express.json());
 
 mongoose
   .connect(
-    "mongo driver"
+    "mongodb+srv://andreimorosan39:JwL5EMJYlYQRfElb@cluster0.jtwyx7f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
   )
   .then(() => console.log("🟢 MongoDB conectado"))
   .catch((err) => console.error("❌ Error al conectar a MongoDB:", err));
